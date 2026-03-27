@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScalerVerse Ltd | Innovate. Build. Scale.</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // We are using a professional sky-blue as the primary brand color
+              primary: '#0ea5e9', 
+              darkBg: '#0f172a',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-darkBg text-white font-sans antialiased selection:bg-primary selection:text-white">
+
+    <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+        <a href="#" class="text-3xl font-extrabold tracking-widest">
+            SCALER<span class="text-primary">VERSE</span>
+        </a>
+        
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <a href="#services" class="hover:text-primary transition duration-300">Services</a>
+            <a href="#portfolio" class="hover:text-primary transition duration-300">Portfolio</a>
+            <a href="#about" class="hover:text-primary transition duration-300">About</a>
+            <a href="#contact" class="px-5 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition duration-300 rounded">
+                Get a Quote
+            </a>
+        </div>
+
+        <div class="md:hidden">
+            <button class="text-gray-300 hover:text-white focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="container mx-auto px-6 py-20 text-center md:py-32">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+            We Convert Your Story <br class="hidden md:block">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">
+                Into Reality
+            </span>
+        </h1>
+        
+        <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+            Innovate • Build • Scale. We provide robust backend architecture, scalable web applications, and modern cross-platform solutions.
+        </p>
+        
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+            <a href="#portfolio" class="px-8 py-3 bg-primary text-white font-semibold rounded hover:bg-blue-600 transition duration-300 w-full md:w-auto">
+                View Our Work
+            </a>
+            <a href="#contact" class="px-8 py-3 bg-transparent border border-gray-600 text-gray-300 font-semibold rounded hover:border-white hover:text-white transition duration-300 w-full md:w-auto">
+                Contact Us
+            </a>
+        </div>
+    </section>
+    <section id="portfolio" class="container mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Our Featured <span class="text-primary">Projects</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Explore some of our recent work. We build scalable and high-performance applications tailored to client needs.</p>
+        </div>
+
+        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="loading-indicator" class="col-span-full text-center text-primary text-xl font-semibold animate-pulse">
+                Loading projects from server...
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="container mx-auto px-6 py-20 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Let's Work <span class="text-primary">Together</span></h2>
+                <p class="text-gray-400">Ready to scale your business? Send us a message and we will get back to you within 24 hours.</p>
+            </div>
+
+            <form id="contact-form" class="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" required 
+                            class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded text-white focus:outline-none focus:border-primary transition duration-300">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required 
+                            class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded text-white focus:outline-none focus:border-primary transition duration-300">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="projectDetails" class="block text-sm font-medium text-gray-400 mb-2">Project Details</label>
+                    <textarea id="projectDetails" name="projectDetails" rows="4" required 
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded text-white focus:outline-none focus:border-primary transition duration-300" 
+                        placeholder="Tell us about your project requirements..."></textarea>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between">
+                    <button type="submit" id="submit-btn" 
+                        class="w-full sm:w-auto px-8 py-3 bg-primary text-white font-bold rounded hover:bg-blue-600 transition duration-300">
+                        Send Message
+                    </button>
+                    <p id="form-status" class="mt-4 sm:mt-0 text-sm font-semibold hidden"></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="text-center py-8 border-t border-gray-800 text-gray-500 text-sm">
+        <p>&copy; 2026 ScalerVerse Ltd. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Replace this with your actual Render API URL
+        const API_BASE_URL = 'https://scalerverse.onrender.com';
+
+        // Function to fetch and display projects
+        async function loadProjects() {
+            const container = document.getElementById('projects-container');
+            const loader = document.getElementById('loading-indicator');
+
+            try {
+                // Call your live backend API
+                const response = await fetch(`${API_BASE_URL}/api/projects`);
+                const projects = await response.json();
+
+                // Remove the loading indicator
+                if (loader) {
+                    loader.remove();
+                }
+
+                // If no projects exist in the database yet
+                if (projects.length === 0) {
+                    container.innerHTML = '<p class="text-gray-400 col-span-full text-center">No projects uploaded yet.</p>';
+                    return;
+                }
+
+                // Loop through each project and create a card
+                projects.forEach(project => {
+                    // Create an array of tech stack tags
+                    const techTags = project.techStack.map(tech => 
+                        `<span class="px-3 py-1 bg-gray-800 text-xs text-primary rounded-full">${tech}</span>`
+                    ).join('');
+
+                    // Construct the HTML card
+                    const cardHTML = `
+                        <div class="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-primary transition duration-300 group">
+                            <div class="h-48 overflow-hidden">
+                                <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold mb-2">${project.title}</h3>
+                                <p class="text-gray-400 mb-4 text-sm line-clamp-3">${project.description}</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    ${techTags}
+                                </div>
+                                <div class="flex space-x-4">
+                                    ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" class="text-sm text-white bg-primary px-4 py-2 rounded hover:bg-blue-600 transition">Live Demo</a>` : ''}
+                                    ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="text-sm text-gray-300 border border-gray-600 px-4 py-2 rounded hover:text-white hover:border-white transition">GitHub</a>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add the card to the container
+                    container.innerHTML += cardHTML;
+                });
+
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+                if (loader) {
+                    loader.innerHTML = '<span class="text-red-500">Failed to load projects. Ensure the server is running.</span>';
+                }
+            }
+        }
+
+        // Run the function when the page loads
+        document.addEventListener('DOMContentLoaded', loadProjects);
+        // Function to handle form submission
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            // Prevent the default page reload behavior
+            e.preventDefault();
+
+            // Get the button and status message elements
+            const submitBtn = document.getElementById('submit-btn');
+            const formStatus = document.getElementById('form-status');
+
+            // Show a loading state on the button
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+            formStatus.classList.add('hidden');
+            formStatus.classList.remove('text-green-500', 'text-red-500');
+
+            // Collect data from the input fields
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                projectDetails: document.getElementById('projectDetails').value
+            };
+
+            try {
+                // Send a POST request to your live Render API
+                const response = await fetch(`${API_BASE_URL}/api/messages`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Show success message and clear the form
+                    formStatus.textContent = "Message sent successfully! We will contact you soon.";
+                    formStatus.classList.add('text-green-500');
+                    formStatus.classList.remove('hidden');
+                    document.getElementById('contact-form').reset();
+                } else {
+                    // Show error message from the server
+                    throw new Error(data.message || 'Failed to send message');
+                }
+
+            } catch (error) {
+                console.error("Error sending message:", error);
+                // Show error message to the user
+                formStatus.textContent = "Error sending message. Please try again.";
+                formStatus.classList.add('text-red-500');
+                formStatus.classList.remove('hidden');
+            } finally {
+                // Restore the button state
+                submitBtn.innerHTML = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
