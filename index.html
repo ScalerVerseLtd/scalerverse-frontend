@@ -23,8 +23,8 @@
 <body class="bg-black text-white font-sans antialiased selection:bg-primary selection:text-white">
 
     <nav class="container mx-auto px-6 py-6 flex justify-between items-center border-b border-gray-900 sticky top-0 bg-black/80 backdrop-blur-md z-50">
-        <a href="#" class="text-3xl font-extrabold tracking-widest text-white">
-            SCALER<span class="text-primary">VERSE</span>
+        <a href="#" class="text-3xl font-extrabold tracking-widest text-white flex items-center">
+            <img src="scalerverse-logo.png" alt="ScalerVerse Logo" class="h-10 w-auto">
         </a>
         
         <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
@@ -60,11 +60,11 @@
         </p>
         
         <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 relative z-10">
-            <a href="#portfolio" class="px-8 py-4 bg-primary text-black font-extrabold rounded-md hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.4)] transition-all duration-300 w-full md:w-auto tracking-wide">
+            <a href="#portfolio" class="px-8 py-3 bg-primary text-black font-bold rounded-sm hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.4)] transition-all duration-300 w-full md:w-auto tracking-wide">
                 View Our Work
             </a>
-            <a href="#services" class="px-8 py-4 bg-transparent border border-gray-600 text-gray-300 font-extrabold rounded-md hover:border-white hover:text-white transition duration-300 w-full md:w-auto tracking-wide">
-                Our Services
+            <a href="#contact" class="px-8 py-3 bg-transparent border border-gray-600 text-gray-300 font-bold rounded-sm hover:border-white hover:text-white transition duration-300 w-full md:w-auto tracking-wide">
+                Contact Us
             </a>
         </div>
     </section>
@@ -113,8 +113,8 @@
         </div>
     </section>
 
-    <section id="about" class="container mx-auto px-6 py-24 border-t border-gray-900">
-        <div class="flex flex-col md:flex-row items-center gap-16">
+    <section id="about" class="container mx-auto px-6 py-24 border-t border-gray-900 border-b border-gray-900">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2 w-full">
                 <div class="relative w-full h-80 bg-[#0a0a0a] rounded-2xl border border-gray-800 flex items-center justify-center overflow-hidden group">
                     <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent group-hover:scale-110 transition-transform duration-700"></div>
@@ -125,10 +125,10 @@
             </div>
             <div class="md:w-1/2 w-full">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-white">Who <span class="text-primary">We Are</span></h2>
-                <p class="text-gray-400 mb-6 leading-relaxed text-lg">
+                <p class="text-gray-400 mb-6 leading-relaxed text-lg font-medium">
                     ScalerVerse Ltd is a forward-thinking digital agency specializing in modern web architecture. We don't just write code; we solve complex business problems through scalable software solutions.
                 </p>
-                <p class="text-gray-400 mb-8 leading-relaxed">
+                <p class="text-gray-400 mb-10 leading-relaxed font-medium">
                     Our team is obsessed with clean code, seamless user experiences, and robust server infrastructures. From startup MVPs to enterprise-grade systems, we are your technical partners in growth.
                 </p>
                 
@@ -138,15 +138,15 @@
                         <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Client Success</p>
                     </div>
                     <div class="bg-[#0a0a0a] p-5 rounded-xl border border-gray-800 text-center flex-1">
-                        <h4 class="text-4xl font-black text-primary mb-1">24/7</h4>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Server Uptime</p>
+                        <h4 class="text-4xl font-black text-primary mb-1">50+</h4>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Projects Completed</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="container mx-auto px-6 py-24 border-t border-gray-900 relative">
+    <section id="contact" class="container mx-auto px-6 py-24 relative">
         <div class="max-w-4xl mx-auto relative z-10">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-white">Let's Work <span class="text-primary">Together</span></h2>
@@ -175,7 +175,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center justify-between">
                     <button type="submit" id="submit-btn" 
-                        class="w-full sm:w-auto px-12 py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.5)] transition-all duration-300 uppercase tracking-widest text-sm">
+                        class="w-full sm:w-auto px-12 py-4 bg-primary text-black font-extrabold rounded-lg hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.5)] transition-all duration-300 uppercase tracking-widest text-sm font-black">
                         Send Message
                     </button>
                     <p id="form-status" class="mt-4 sm:mt-0 text-sm font-bold hidden px-4"></p>
@@ -190,8 +190,9 @@
 
     <script>
         const API_BASE_URL = 'https://scalerverse.onrender.com';
+        const originalGridClasses = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8";
 
-        // Load Projects Function
+        // Load Projects Function with conditional centering logic
         async function loadProjects() {
             const container = document.getElementById('projects-container');
             const loader = document.getElementById('loading-indicator');
@@ -201,10 +202,21 @@
                 const projects = await response.json();
 
                 if (loader) loader.remove();
+                container.innerHTML = ''; // Clear container
 
                 if (projects.length === 0) {
                     container.innerHTML = '<p class="text-gray-500 col-span-full text-center py-10 border border-dashed border-gray-800 rounded-xl">No projects uploaded yet.</p>';
+                    container.className = originalGridClasses;
                     return;
+                }
+
+                // Conditional layout: center if one, grid if more
+                if (projects.length === 1) {
+                    // Center the single card
+                    container.className = "flex justify-center px-4";
+                } else {
+                    // Restore original grid layout
+                    container.className = originalGridClasses;
                 }
 
                 projects.forEach(project => {
@@ -213,7 +225,7 @@
                     ).join('');
 
                     const cardHTML = `
-                        <div class="bg-[#0a0a0a] rounded-2xl overflow-hidden border border-gray-800 hover:border-primary hover:shadow-[0_0_30px_rgba(14,165,233,0.1)] transition-all duration-500 group flex flex-col h-full">
+                        <div class="bg-[#0a0a0a] rounded-2xl overflow-hidden border border-gray-800 hover:border-primary hover:shadow-[0_0_30px_rgba(14,165,233,0.1)] transition-all duration-500 group flex flex-col h-full ${projects.length === 1 ? 'w-full max-w-xl' : ''}">
                             <div class="h-60 overflow-hidden border-b border-gray-800 relative">
                                 <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
                                 <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
@@ -225,8 +237,8 @@
                                     ${techTags}
                                 </div>
                                 <div class="flex space-x-4 mt-auto">
-                                    ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" class="text-sm text-black bg-primary px-6 py-2.5 rounded-md font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all duration-300 text-center flex-1">Live Demo</a>` : ''}
-                                    ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="text-sm text-gray-300 border border-gray-700 px-6 py-2.5 rounded-md font-bold hover:text-white hover:border-gray-400 transition-all duration-300 text-center flex-1">GitHub</a>` : ''}
+                                    ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" class="text-sm text-black bg-primary px-6 py-2.5 rounded-md font-bold hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all duration-300 text-center flex-1 font-black">Live Demo</a>` : ''}
+                                    ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="text-sm text-gray-300 border border-gray-700 px-6 py-2.5 rounded-md font-bold hover:text-white hover:border-gray-400 transition-all duration-300 text-center flex-1 font-black">GitHub</a>` : ''}
                                 </div>
                             </div>
                         </div>
@@ -236,6 +248,7 @@
 
             } catch (error) {
                 if (loader) loader.innerHTML = '<span class="text-red-500 bg-red-500/10 px-6 py-3 rounded-lg border border-red-500/20">Failed to load projects. Ensure the backend is active.</span>';
+                container.className = originalGridClasses;
             }
         }
 
